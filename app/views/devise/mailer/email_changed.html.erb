@@ -1,0 +1,9 @@
+<p>Hey,</p>
+
+<% if @resource.try(:unconfirmed_email?) %>
+<p>Someone's trying to update your email address to: <%= @resource.unconfirmed_email %></p>
+<% else %>
+<p>Someone's updated your email address to: <%= @resource.email %></p>
+<% end %>
+
+<p>If this was you, nothing to worry about. If it wasn't you, please let us know straight away!</p>

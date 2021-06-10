@@ -1,0 +1,10 @@
+<%= link_to :back do %>
+<div class="w-screen h-screen fixed top-0 z-30 bg-black opacity-30"></div>
+<% end %>
+
+<div class="fixed max-w-lg bg-white left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg shadow-lg z-40">
+  <div class="relative">
+    <%= link_to :back, class: "absolute top-3 right-3" do %><i class="fas fa-times"></i><% end %>
+  </div>
+  <%= yield %>
+</div>

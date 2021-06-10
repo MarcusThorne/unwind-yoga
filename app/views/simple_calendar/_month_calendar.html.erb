@@ -1,0 +1,37 @@
+<div class="simple-calendar">
+  <div class="calendar-heading mb-2 mt-1">
+    <%= link_to t('simple_calendar.previous', default: "<i class='fas fa-long-arrow-alt-left'></i>".html_safe), calendar.url_for_previous_view, class: "fixed bottom-5 -left-3 text-2xl z-10 text-teal mt-7 ml-4 bg-white px-4 py-2 shadow rounded-r-lg" %>
+    <span class="absolute z-0 top-1/2 left-1/2 text-black w-max" style="font-family: 'Heebo', sans-serif; font-size: 180px; opacity: 0.05; transform: translate(-50%, -50%);"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
+    <%= link_to t('simple_calendar.next', default: "<i class='fas fa-long-arrow-alt-right'></i>".html_safe), calendar.url_for_next_view, class: "fixed bottom-5 -right-3 bg-white text-teal px-4 py-2 shadow rounded-l-lg text-2xl z-10 right-0 mt-7 mr-4" %>
+  </div>
+
+  <div>
+    <table class="table table-striped w-full h-screen">
+      <thead>
+        <tr>
+          <% date_range.slice(0, 7).each do |day| %>
+            <th class="text-left font-normal pb-1 pl-5 border mt-0 pt-2"><%= t('date.abbr_day_names')[day.wday] %></th>
+          <% end %>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% date_range.each_slice(7) do |week| %>
+          <tr>
+            <% week.each do |day| %>
+              <%= content_tag :td, class: "w-32 border #{ unless params[:start_date].nil? then "bg-lightGrey" if day.strftime("%m") != params[:start_date].to_date.strftime("%m") else "bg-lightGrey" if Date.today.strftime("%m") != day.strftime("%m") end }" do %>
+                <div class="h-28">
+                  <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
+                    <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
+                  <% else %>
+                    <% passed_block.call day, sorted_events.fetch(day, []) %>
+                  <% end %>
+                </div>
+              <% end %>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

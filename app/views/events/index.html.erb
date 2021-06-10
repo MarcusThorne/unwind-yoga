@@ -1,0 +1,14 @@
+<div class="bg-teal p-12 flex justify-between items-center text-white">
+  <h1 class="text-4xl <% unless current_user.try(:admin?) %>w-full text-center<% end %>">Classes</h1>
+  <% if current_user.try(:admin?) %>
+  <%= link_to 'New Class', new_event_path, class: "rounded border-2 border-white hover:bg-white px-6 py-3 text-center text-white hover:text-teal" %>
+  <% end %>
+</div>
+
+<div class="p-12 grid lg:grid-cols-2 gap-6">
+  <%= render @events %>
+</div>
+
+<% if @event %>
+<%= render 'form' %>
+<% end %>

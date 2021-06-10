@@ -1,0 +1,64 @@
+<div class="h-screen px-12 bg-fixed bg-cover flex items-center justify-center" style="background-image: url('<%= image_url "home-hero.jpg" %>');">
+  <div class="mx-w-sm rounded-lg shadow-lg bg-white bg-opacity-75 p-12 flex flex-col space-y-6">
+    <h1 class="text-6xl">Yoga. Pilates. Strength.</h1>
+    <a class="border-2 border-black hover:border-teal rounded hover:bg-teal p-3 text-center hover:text-white" href="#classes">Yoga Classes</a>
+  </div>
+</div>
+
+<div class="bg-black flex flex-col md:flex-row justify-center text-center text-white text-2xl">
+  <a class="p-6 box-content hover:bg-white hover:text-black" href="https://www.facebook.com/Unwind-Yoga-Pilates-Strength-109218960719950/" target="_blank">
+    <span><i class="fab fa-facebook-square" style="color: #4867AA"></i> Facebook </span>
+  </a>
+  <a class="p-6 box-content hover:bg-white hover:text-black" href="https://www.instagram.com/unwind_yoga_pilates/" target="_blank">
+    <span><i class="fab fa-instagram text-orange"></i> Instagram</span>
+  </a>
+  <a class="p-6 box-content hover:bg-white hover:text-black" href="https://www.youtube.com/channel/UCGXX3PAykpCHYuWrVfejodQ" target="_blank">
+    <span><i class="fab fa-youtube text-red"></i> YouTube </span>
+  </a>
+</div>
+
+<div class="bg-white p-12 md:p-24 flex flex-col md:flex-row items-center md:space-x-24 space-y-6 md:space-y-0">
+  <h2 class="md:w-1/3 text-6xl">Welcome To Unwind Yoga</h2>
+  <div class="md:w-2/3 text-justify md:space-y-6">
+    <p>
+      Corporate fitness has missed the mark on what true health is. It’s not a size or shape, but how you feel during the day. Do you have
+      energy late in the afternoon and evening? Can you move with ease and grace? Do you sleep well? Are you moving in the direction of
+      health?
+    </p>
+    <p>
+      I believe in inclusion, tailoring yoga, progress over perfection and celebrating little wins along the way. This keeps us engaged
+      and grateful for earned progress. We create our own reality. You are in charge of what happens to you. Life happens for us, not to us.
+      Believe you can, you are worth it. Own what you do.
+    </p>
+  </div>
+</div>
+
+
+<div class="p-12 grid lg:grid-cols-2 gap-6">
+  <%= render @events %>
+</div>
+
+
+<div class="bg-fixed bg-cover py-24 flex items-center justify-center text-white text-4xl text-center" style="background-image: url('<%= image_url "home-second-hero.jpg" %>');">
+  <p class="w-2/3 lg:w-1/3 rounded-lg shadow-lg p-12 bg-black">Lighthearted and wholehearted</p>
+</div>
+
+<div class="grid lg:grid-cols-2">
+  <div class="h-full flex flex-col justify-center bg-teal p-12 md:p-24 space-y-6 text-white">
+    <h2 class="text-4xl">Why yoga?</h2>
+    <p>
+      Find mental clarity. Build strength. Be more present and enjoy each moment to the fullest. Each of our teachers have fun
+      personalities and an ability to connect with you. Unwind is perfect for people…
+    </p>
+    <ul class="list-disc">
+      <li>Who have never tried yoga before</li>
+      <li>Who are a bit rusty</li>
+      <li>Who are yoga fanatics</li>
+      <li>Who have an existing injury</li>
+      <li>Who would like to be more flexible</li>
+    </ul>
+    <a class="border-2 border-white rounded hover:bg-white p-3 text-center hover:text-teal" href="#classes">Yoga Classes</a>
+  </div>
+
+  <%= render 'reviews/carousel' %>
+</div>

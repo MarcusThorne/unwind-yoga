@@ -1,0 +1,19 @@
+<h2>Booking Confirmation # BookingNo <%= @booking.id %></h2>
+
+<p>Hello <%= @user.name %>, <br><br>
+
+Thanks for booking a yoga session with UnwindYoga, we are so happy you'll be joining us on <%= @session.when.strftime("%m/%d/%Y") %>. <br><br>
+
+<% if @booking.presence == "online" %>
+  When it's time for your session at <%= @session.when.strftime("%I:%M %p") %>, join us at this link: <b>https://<%= @zoom_link %></b> <br>
+  Using this passcode: <b><%= @zoom_code %></b> <br><br>
+  We can't wait for you to join us online. :) <br><br>
+
+<% else %>
+  We can't wait to see you at the studio. :) <br><br>
+
+<% end %>
+
+Sincerly, <br>
+  UnwindYoga.
+</p>

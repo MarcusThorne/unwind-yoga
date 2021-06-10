@@ -1,0 +1,34 @@
+<%= render 'shared/modal' do %>
+
+<%= form_with model: @review, class: "p-6" do |form| %>
+<div class="contents space-y-6">
+
+  <h1 class="text-4xl">New Review</h1>
+
+  <% if @review.errors.any? %>
+  <div class="text-red">
+    <%= @review.errors.full_messages %>
+  </div>
+  <% end %>
+
+  <div class="flex flex-col">
+    <%= form.label :name, class: "font-medium" %>
+    <%= form.text_field :name, autofocus: true, class: "h-12 border rounded pl-3" %>
+  </div>
+
+  <div class="flex flex-col">
+    <%= form.label :description, class: "font-medium" %>
+    <%= form.text_area :description, rows: 5, class: "border rounded pl-3" %>
+  </div>
+
+  <div class="flex items-center space-x-3">
+    <%= form.label :photo, class: "font-medium" %>
+    <%= form.file_field :photo %>
+  </div>
+
+  <%= form.submit "Save", id: "submit-button", class: "bg-teal hover:bg-teal-light px-6 py-3 text-center text-white rounded shadow-sm" %>
+
+</div>
+<% end %>
+
+<% end %>

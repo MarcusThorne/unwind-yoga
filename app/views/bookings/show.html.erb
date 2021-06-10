@@ -1,0 +1,40 @@
+<div class="p-6">
+  <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg space-y-6">
+
+    <div>
+      <h1 class="text-4xl"><%= @event.name %></h1>
+      <p class="text-2xl"><%= @session.when.strftime("%A %-d %B") %> <%= @session.when.strftime("%-I%P") %></p>
+    </div>
+
+    <% if @session.when > DateTime.current %>
+
+    <% if @booking.presence == "studio" %>
+    <div>
+      <p>We can't wait to see you! The studio address is:</p>
+      <p class="font-medium text-teal">839 Nakomis Drive NE, Albuquerque, NM, 87123</p>
+    </div>
+
+    <% elsif @booking.presence == "online" %>
+    <div class="space-y-3">
+      <p>Here's the info you'll need to join the session online:</p>
+      <a class="font-medium text-teal" href="<%= @session.zoom_link %>"><%= @session.zoom_link %></a>
+      <p>Passcode: <span class="font-medium text-teal"><%= @session.zoom_code %></span></p>
+    </div>
+
+    <% end %>
+
+    <p>We've also emailed this info to you.</p>
+
+
+    <%= link_to "Cancel", event_session_booking_path(Event.find(Session.find(@booking.session_id).event_id), Session.find(@booking.session_id), @booking), method: :delete, data: { confirm: "Are you sure you'd like to cancel this booking?" }, class: "block rounded bg-red-600 hover:bg-red-400 px-6 py-3 text-center text-white" %>
+    <% if @session.when.to_date == Date.today %>
+    <p>Because this booking is today, we won't be able to refund you if you cancel.</p>
+    <% end %>
+
+    <% else %>
+
+    <p>This session is over. We hope you enjoyed it!</p>
+
+    <% end %>
+  </div>
+</div>

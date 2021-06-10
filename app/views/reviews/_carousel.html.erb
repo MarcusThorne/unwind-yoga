@@ -1,0 +1,18 @@
+<div class="h-full flex flex-col justify-center bg-gray-50 md:p-24 p-10 space-y-6" id="carousel">
+  <h2 class="text-4xl">Happy Customers</h2>
+  <% @reviews.each do |r| %>
+  <div class="slide hidden space-y-6">
+    <div class="flex items-center space-x-6">
+      <% if r.photo.attached? %>
+      <%= cl_image_tag r.photo.key, class: "h-16 w-16 rounded-full object-cover" %>
+      <% else %>
+      <%= image_tag "placeholder", class: "h-16 w-14 rounded-full object-cover" %>
+      <% end %>
+      <h3 class="font-medium"><%= r.name %></h3>
+    </div>
+    <p><%= r.description %></p>
+  </div>
+  <% end %>
+</div>
+
+<%= javascript_pack_tag 'carousel' %>

@@ -1,0 +1,36 @@
+<%= render 'shared/modal' do %>
+
+<%= form_with model: @event, class: "p-6" do |form| %>
+
+<div class="flex space-x-3">
+
+  <div class="relative w-1/4">
+    <i class="far fa-plus-square absolute top-4 left-4 text-4xl text-teal"></i>
+    <%= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png", class: "object-cover" %>
+  </div>
+
+  <div class="flex-grow flex flex-col space-y-3">
+
+    <div class="flex flex-col">
+      <%= form.label :name, class: "font-medium" %>
+      <%= form.text_field :name, autofocus: true, class: "h-12 border rounded pl-3" %>
+    </div>
+
+    <div class="flex flex-col">
+      <%= form.label :description, class: "font-medium" %>
+      <%= form.text_area :description, rows: 5, class: "border rounded pl-3" %>
+    </div>
+
+    <div class="flex items-center space-x-3">
+      <%= form.label :photo, class: "font-medium" %>
+      <%= form.file_field :photo %>
+    </div>
+
+    <%= form.submit "Save", class: "rounded bg-teal hover:bg-teal-light px-6 py-3 text-center text-white" %>
+
+  </div>
+</div>
+</div>
+<% end %>
+
+<% end %>

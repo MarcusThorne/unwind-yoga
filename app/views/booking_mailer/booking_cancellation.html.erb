@@ -1,0 +1,12 @@
+Hello <%= @user.name %>,<br><br>
+
+Your booking for <%= @user.name %> on <%= @session.when.strftime("%m/%d/%Y") %> at <%= @session.when.strftime("%I:%M %p") %> has been cancelled.<br><br>
+
+<% if @refunded %>
+We've refunded you. You should the refund on your bank statement in the next few days. If you don't, please speak to your bank.
+<% end %>
+
+We'd love to see you again!
+
+Thanks,<br>
+Unwind Yoga
