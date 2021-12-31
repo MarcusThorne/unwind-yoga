@@ -1,13 +1,17 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  type: 
-  event: MyString
-  attendees: MyString
-  username: MyString
+  presence: MyString
+  payment_intent: MyString
+  payment_method: MyString
+  attendees: 1
+  session: one
+  user: one
 
 two:
-  type: 
-  event: MyString
-  attendees: MyString
-  username: MyString
+  presence: MyString
+  payment_intent: MyString
+  payment_method: MyString
+  attendees: 1
+  session: two
+  user: two

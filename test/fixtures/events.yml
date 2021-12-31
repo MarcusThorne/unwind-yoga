@@ -2,10 +2,8 @@
 
 one:
   name: MyString
-  day: MyString
-  time: MyString
+  description: MyText
 
 two:
   name: MyString
-  day: MyString
-  time: MyString
+  description: MyText

@@ -28,8 +28,6 @@ class ReviewsController < ApplicationController
   def update
   end
 
-
-
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
