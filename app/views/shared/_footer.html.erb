@@ -1,0 +1,55 @@
+<div class="px-auto flex flex-col md:px-20 py-20 bg-black text-gray-300 flex justify-between xl:flex-row xl:px-40">
+  <div class="w-max mx-auto ">
+    <%= link_to root_path do %>
+      <%= image_tag 'logo.png', class: "h-16 mb-5" %>
+    <% end %>
+
+    <div class="flex flex-col w-max ml-5">
+      <h1 class="text-lg font-semibold mb-4">Follow us!</h1>
+      <a class="hover:text-teal" href="https://www.facebook.com/Unwind-Yoga-Pilates-Strength-109218960719950/" target="_blank">
+        <span><i class="fab fa-facebook-square text-teal"></i> Facebook </span>
+      </a>
+      <a class="hover:text-teal" href="https://www.instagram.com/unwind_yoga_pilates/" target="_blank">
+        <span><i class="fab fa-instagram text-yellow"></i> Instagram</span>
+      </a>
+      <a class="hover:text-teal" href="https://www.youtube.com/channel/UCGXX3PAykpCHYuWrVfejodQ" target="_blank">
+        <span><i class="fab fa-youtube text-red"></i> YouTube </span>
+      </a>
+    </div>
+  </div>
+
+  <div class="w-full flex flex-col md:flex-row justify-center md:items-end text-center space-y-10 mt-10 sm:grid sm:grid-cols-2 md:flex md:space-x-10 xl:space-x-20 xl:text-left xl:ml-20 xl:mt-0 xl:justify-end ">
+    <div class="flex flex-col w-max mx-auto md:mx-0">
+      <h1 class="text-lg font-semibold mb-4">Pages</h1>
+      <%= link_to 'Home', root_path, class: "hover:text-teal #{ 'text-teal' if current_page?(new_to_unwind_path) }" %>
+      <%= link_to 'New to Unwind', new_to_unwind_path, class: "hover:text-teal #{ 'text-teal' if current_page?(new_to_unwind_path) }" %>
+      <%= link_to 'How Clean is Clean', cleanliness_path, class: "hover:text-teal #{ 'text-teal' if current_page?(cleanliness_path) }" %>
+      <%= link_to 'Studio', studio_path, class: "hover:text-teal #{ 'text-teal' if current_page?(studio_path) }" %>
+      <%= link_to 'Resources', resources_path, class: "hover:text-teal #{ 'text-teal' if current_page?(resources_path) }" %>
+    </div>
+
+    <div class="flex flex-col w-max mx-auto md:mx-0">
+      <h1 class="text-lg font-semibold mb-4">About Us</h1>
+      <%= link_to 'Blog Posts', root_path, class: "hover:text-yellow #{ 'text-teal' if current_page?(new_to_unwind_path) }" %>
+      <%= link_to 'Benefits of Yoga', new_to_unwind_path, class: "hover:text-yellow #{ 'text-teal' if current_page?(new_to_unwind_path) }" %>
+      <%= link_to 'What We Do', cleanliness_path, class: "hover:text-yellow #{ 'text-teal' if current_page?(cleanliness_path) }" %>
+      <%= link_to 'Studio', studio_path, class: "hover:text-yellow #{ 'text-teal' if current_page?(studio_path) }" %>
+    </div>
+
+    <div class="flex flex-col w-max mx-auto md:mx-0">
+      <h1 class="text-lg font-semibold mb-4">Where to Find Us</h1>
+      <%= link_to 'Home', root_path, class: "hover:text-teal #{ 'text-teal' if current_page?(new_to_unwind_path) }" %>
+      <%= link_to 'New to Unwind', new_to_unwind_path, class: "hover:text-teal #{ 'text-teal' if current_page?(new_to_unwind_path) }" %>
+      <%= link_to 'How Clean is Clean', cleanliness_path, class: "hover:text-teal #{ 'text-teal' if current_page?(cleanliness_path) }" %>
+      <%= link_to 'Studio', studio_path, class: "hover:text-teal #{ 'text-teal' if current_page?(studio_path) }" %>
+      <%= link_to 'Resources', resources_path, class: "hover:text-teal #{ 'text-teal' if current_page?(resources_path) }" %>
+    </div>
+
+    <div class="flex flex-col w-max mx-auto md:mx-0">
+      <h1 class="text-lg font-semibold mb-4">Pages</h1>
+      <%= link_to 'Home', root_path, class: "hover:text-yellow #{ 'text-teal' if current_page?(new_to_unwind_path) }" %>
+      <%= link_to 'New to Unwind', new_to_unwind_path, class: "hover:text-yellow #{ 'text-teal' if current_page?(new_to_unwind_path) }" %>
+      <%= link_to 'How Clean is Clean', cleanliness_path, class: "hover:text-yellow #{ 'text-teal' if current_page?(cleanliness_path) }" %>
+    </div>
+  </div>
+</div>

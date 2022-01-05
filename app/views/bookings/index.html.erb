@@ -5,45 +5,44 @@
   <input type="search" placeholder="Search" class="w-full h-12 rounded border px-3">
 
   <% @sessions.order(when: :desc).each do |session| %>
-  <% if session.bookings.length > 0 %>
+    <% if session.bookings.length > 0 %>
 
-  <div class="rounded-lg shadow-lg bg-white divide-y">
+      <div class="rounded-lg shadow-lg bg-white divide-y">
 
-    <div class="p-6">
-      <h1 class="text-2xl font-medium"><%= Event.find(session.event_id).name %></h1>
-      <p class="text-xl"><%= session.when.strftime("%A %-d %B") %> <%= session.when.strftime("%-I%P") %></p>
-    </div>
+        <div class="p-6">
+          <h1 class="text-2xl font-medium"><%= Event.find(session.event_id).name %></h1>
+          <p class="text-xl"><%= session.when.strftime("%A %-d %B") %> <%= session.when.strftime("%-I%P") %></p>
+        </div>
 
-    <% session.bookings.each do |booking| %>
-    <div class="hover:bg-gray-50 grid grid-cols-3 md:grid-cols-5 grid-flow-row">
+        <% session.bookings.each do |booking| %>
+          <div class="hover:bg-gray-50 grid grid-cols-3 md:grid-cols-5 grid-flow-row">
 
-      <div class="col-span-3 md:col-span-1 p-6 self-center text-center md:text-left">
-        <p class="font-medium"><%= User.find(booking.user_id).name %></p>
-        <p><%= User.find(booking.user_id).email %></p>
+            <div class="col-span-3 md:col-span-1 p-6 self-center text-center md:text-left">
+              <p class="font-medium"><%= User.find(booking.user_id).name %></p>
+              <p><%= User.find(booking.user_id).email %></p>
+            </div>
+
+            <div class="p-6 self-center text-center">
+              <%= booking.presence %>
+            </div>
+
+            <div class="p-6 self-center text-center">
+              <%= booking.attendees %>
+            </div>
+
+            <div class="p-6 self-center text-center">
+              <%= booking.payment_method %>
+            </div>
+
+            <div class="p-6 col-span-3 md:col-span-1 p-3 self-center text-center md:text-right">
+              <%= link_to "Cancel", event_session_booking_path(Event.find(Session.find(booking.session_id).event_id), Session.find(booking.session_id), booking), method: :delete, data: { confirm: "Are you sure you'd like to cancel this booking?" }, class: "inline-block rounded bg-red hover:bg-red-light px-6 py-3 text-center text-white" %>
+            </div>
+
+          </div>
+        <% end %>
       </div>
 
-      <div class="p-6 self-center text-center">
-        <%= booking.presence %>
-      </div>
-
-      <div class="p-6 self-center text-center">
-        <%= booking.attendees %>
-      </div>
-
-      <div class="p-6 self-center text-center">
-        <%= booking.payment_method %>
-      </div>
-
-      <div class="p-6 col-span-3 md:col-span-1 p-3 self-center text-center md:text-right">
-        <%= link_to "Cancel", event_session_booking_path(Event.find(Session.find(booking.session_id).event_id), Session.find(booking.session_id), booking), method: :delete, data: { confirm: "Are you sure you'd like to cancel this booking?" }, class: "inline-block rounded bg-red-600 hover:bg-red-400 px-6 py-3 text-center text-white" %>
-      </div>
-
-    </div>
     <% end %>
-
-  </div>
-
-  <% end %>
   <% end %>
 
 </div>

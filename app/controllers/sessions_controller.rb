@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-
   def new
     @event = Event.find(params[:event_id])
     @session = Session.new

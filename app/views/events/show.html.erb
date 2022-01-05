@@ -10,11 +10,11 @@
       <div class="p-6 flex justify-between items-center">
         <h2 class="text-2xl font-medium">Sessions</h2>
         <% if current_user.try(:admin?) %>
-        <%= link_to 'New Session', new_event_session_path(@event), class: "rounded bg-teal hover:bg-teal-light px-6 py-3 text-center text-white" %>
+          <%= link_to 'New Session', new_event_session_path(@event), class: "rounded bg-teal hover:bg-teal-light px-6 py-3 text-center text-white" %>
         <% end %>
       </div>
       <div class="divide-y">
-        <%= render @event.sessions.where(event_id: @event.id, when: (DateTime.current + 1.hour..DateTime.current + 7.days)).order(:when) %>
+        <%= render @event.sessions.where(event_id: @event.id, when: (DateTime.current + 1.hour..DateTime.current + 30.days)).order(:when) %>
       </div>
     </div>
   </div>
@@ -22,5 +22,5 @@
 </div>
 
 <% if @session %>
-<%= render 'sessions/new' %>
+  <%= render 'sessions/new' %>
 <% end %>

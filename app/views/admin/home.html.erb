@@ -2,7 +2,6 @@
 
   <div class="md:col-span-2">
     <div class="rounded-lg shadow-lg bg-white p-6 flex flex-col">
-
       <h1 class="border-b pb-3 text-4xl">Dashboard</h1>
 
       <div class="divide-y">
@@ -60,13 +59,13 @@
 
         <div class="grid grid-cols-2">
           <% @sessions.each do |session| %>
-          <% if session.when.to_date == date %>
-          <%= link_to event_path(session.event_id) do %>
-          <div class="<%= Event.find(session.event_id).find_color %> px-3 py-1 rounded text-sm text-center">
-            <p class="text-sm"><span class="font-medium"><%= Event.find(session.event_id).name %></span> <%= session.when.strftime("%I:%M%P") %></p>
-          </div>
-          <% end %>
-          <% end %>
+            <% if session.when.to_date == date %>
+              <%= link_to event_path(session.event_id) do %>
+                <div class="<%= Event.find(session.event_id).find_color(Event.find(session.event_id).id) %> px-3 py-1 rounded text-sm text-center">
+                  <p class="text-sm"><span class="font-medium"><%= Event.find(session.event_id).name %></span> <%= session.when.strftime("%I:%M%P") %></p>
+                </div>
+              <% end %>
+            <% end %>
 
           <% end %>
         </div>

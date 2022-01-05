@@ -19,7 +19,8 @@ module.exports = {
       teal: { light: '#1CABC4', DEFAULT: '#178CA0' },
       pink: { light: '#F1E9ED', DEFAULT: '#EEE5E9' },
       yellow: { light: '#FDDA2B', DEFAULT: '#FDDF46' },
-      blue: { light: '#D2FEFF', DEFAULT: '#CEFDFF' }
+      blue: { light: '#D2FEFF', DEFAULT: '#CEFDFF' },
+      red: { light: "ff6b3b", DEFAULT: "#f74f3a" }
     },
 
     extend: {},

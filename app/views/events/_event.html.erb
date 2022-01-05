@@ -2,9 +2,9 @@
 
   <div class="flex-none w-64 relative">
     <% if event.photo.attached? %>
-    <%= cl_image_tag event.photo.key, class: "absolute inset-0 w-full h-full object-cover object-center	" %>
+      <%= cl_image_tag event.photo.key, class: "absolute inset-0 w-full h-full object-cover object-center	" %>
     <% else %>
-    <%= image_tag 'placeholder', class: "absolute inset-0 w-full h-full object-cover" %>
+      <%= image_tag 'placeholder', class: "absolute inset-0 w-full h-full object-cover" %>
     <% end %>
   </div>
 
@@ -14,7 +14,10 @@
     <div class="flex justify-between">
       <h3 class="text-2xl font-medium"><%= event.name %></h3>
       <% if current_user.try(:admin?) %>
-      <%= link_to edit_event_path(event), class: "hover:text-teal" do %><i class="fas fa-edit"></i><% end %>
+        <div class="w-max" >
+          <%= link_to edit_event_path(event), class: "hover:text-teal" do %><i class="fas fa-edit"></i><% end %>
+          <%= link_to event_path(event), method: :delete, data: { confirm: "Are you sure you'd like to cancel this Event?" }, class: "hover:text-teal" do %><i class="fas fa-trash"></i><% end %>
+        </div>
       <% end %>
     </div>
     <p><%= event.description %></p>
@@ -24,5 +27,4 @@
     </div>
 
   </div>
-
 </div>

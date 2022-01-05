@@ -8,7 +8,7 @@
   <div class="flex space-x-3">
     <%= link_to 'Book', new_event_session_booking_path(session.event_id, session.id), class: "rounded bg-teal hover:bg-teal-light px-6 py-3 text-center text-white" %>
     <% if current_user.try(:admin?) %>
-    <%= link_to 'Bookings', event_session_path(session.event_id, session.id), class: "rounded bg-pink hover:bg-pink-light px-6 py-3 text-center" %>
+      <%= link_to 'Bookings', event_session_path(session.event_id, session.id), class: "rounded bg-yellow hover:bg-yellow-light text-white px-6 py-3 text-center" %>
     <% end %>
   </div>
 

@@ -1,50 +1,49 @@
 <div class="p-12">
   <%= form_with model: @session, url: [@event, @session], class: "max-w-lg mx-auto rounded-lg shadow-lg bg-white p-6 flex flex-col" do |form| %>
-  <div class="contents space-y-6">
+    <div class="contents space-y-6">
 
-    <div>
-      <h1 class="text-4xl">New Session</h1>
-      <p class="text-2xl"><%= @event.name %></p>
+      <div>
+        <h1 class="text-4xl">New Session</h1>
+        <p class="text-2xl"><%= @event.name %></p>
+      </div>
+
+
+      <% if @session.errors.any? %>
+        <div class="text-red">
+          <%= @session.errors.full_messages %>
+        </div>
+      <% end %>
+
+
+      <div class="flex flex-col">
+        <%= form.label :when, "When", class: "font-medium" %>
+        <%= form.datetime_field :when,  class: "h-12 border rounded pl-3" %>
+      </div>
+
+      <div class="flex items-center space-x-3">
+        <%= check_box_tag(:weekly) %>
+        <%= label_tag(:weekly, "Weekly?", class: "font-medium") %>
+      </div>
+
+      <div id="until" class="hidden flex flex-col">
+        <%= label_tag :until, "Until", class: "font-medium" %>
+        <%= date_field_tag :until, "", class: "h-12 border rounded pl-3" %>
+      </div>
+
+      <div class="flex flex-col">
+        <%= form.label :zoom_link, class: "font-medium" %>
+        <%= form.text_field :zoom_link, class: "h-12 border rounded pl-3" %>
+      </div>
+
+      <div class="flex flex-col">
+        <%= form.label :zoom_code, class: "font-medium" %>
+        <%= form.text_field :zoom_code, class: "h-12 border rounded pl-3" %>
+      </div>
+
+      <%= form.submit "Save", id: "submit-button", class: "bg-teal hover:bg-teal-light px-6 py-3 text-center text-white rounded shadow-sm" %>
+
     </div>
-
-
-    <% if @session.errors.any? %>
-    <div class="text-red">
-      <%= @session.errors.full_messages %>
-    </div>
-    <% end %>
-
-
-    <div class="flex flex-col">
-      <%= form.label :when, "When", class: "font-medium" %>
-      <%= form.datetime_field :when,  class: "h-12 border rounded pl-3" %>
-    </div>
-
-    <div class="flex items-center space-x-3">
-      <%= check_box_tag(:weekly) %>
-      <%= label_tag(:weekly, "Weekly?", class: "font-medium") %>
-    </div>
-
-    <div id="until" class="hidden flex flex-col">
-      <%= label_tag :until, "Until", class: "font-medium" %>
-      <%= date_field_tag :until, "", class: "h-12 border rounded pl-3" %>
-    </div>
-
-    <div class="flex flex-col">
-      <%= form.label :zoom_link, class: "font-medium" %>
-      <%= form.text_field :zoom_link, class: "h-12 border rounded pl-3" %>
-    </div>
-
-    <div class="flex flex-col">
-      <%= form.label :zoom_code, class: "font-medium" %>
-      <%= form.text_field :zoom_code, class: "h-12 border rounded pl-3" %>
-    </div>
-
-    <%= form.submit "Save", id: "submit-button", class: "bg-teal hover:bg-teal-light px-6 py-3 text-center text-white rounded shadow-sm" %>
-
-  </div>
   <% end %>
 </div>
-
 
 <%= javascript_pack_tag 'newSession' %>

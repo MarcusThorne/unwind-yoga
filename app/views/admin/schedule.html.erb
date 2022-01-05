@@ -3,14 +3,16 @@
 
   <div class="mx-1 -mt-3">
     <%= month_calendar do |date| %>
+
       <div class="relative">
         <p class="ml-3 mt-2 border px-2 absolute w-max rounded bg-white shadow"><%= date.day %></p>
         <div class="flex flex-col mt-3" style="max-height: 6rem; overflow: auto;">
+
           <% @events.each do |e| %>
             <% e.sessions.each do |s| %>
               <% if s.when != nil && s.when.to_date == date %>
                 <%= link_to event_path(e), class: "flex" do %>
-                  <div class="<%= e.find_color %> px-3 flex rounded rounded-l-none shadow mt-1 -ml-1 text-sm text-center p-1 pl-14 w-max">
+                  <div class="<%= e.find_color(e.id) %> px-3 flex rounded rounded-l-none shadow mt-1 -ml-1 text-sm text-center p-1 pl-14 w-max">
                     <h5 class="font-semibold mr-2"><%= e.name %></h5>
                     <p class="text-sm"><%= s.when.strftime("%I:%M%P") %></p>
                     <% unless s.when <= (Date.today + 7) %>
@@ -21,6 +23,7 @@
               <% end %>
             <% end %>
           <% end %>
+
         </div>
       </div>
     <% end %>

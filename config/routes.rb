@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'pages#home'
 
   devise_for :users
 
@@ -12,7 +13,6 @@ Rails.application.routes.draw do
   resources :reviews
   resources :bookings, only: [:index]
 
-  root to: 'pages#home'
   get 'new-to-unwind', to: 'pages#new_to_unwind'
   get 'cleanliness', to: 'pages#cleanliness'
   get 'studio', to: 'pages#studio'

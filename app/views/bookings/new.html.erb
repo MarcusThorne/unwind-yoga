@@ -2,58 +2,56 @@
   <%= form_with model: @booking, url: [@event, @session, @booking], class: "max-w-lg mx-auto rounded-lg shadow-lg bg-white p-6" do |form| %>
 
   <%= form.hidden_field :payment_intent %>
+    <div class="contents space-y-6">
 
-  <div class="contents space-y-6">
-
-    <div>
-      <h1 class="text-4xl"><%= @event.name %></h1>
-      <p class="text-2xl"><%= @session.when.strftime("%A %-d %B") %> <%= @session.when.strftime("%-I%P") %></p>
-    </div>
-
-    <% if @booking.errors.any? %>
-    <div class="text-red">
-      <%= @booking.errors.full_messages %>
-    </div>
-    <% end %>
-
-    <div class="flex flex-col">
-      <%= form.label :presence, "Are you coming to the studio or dialling in?", class: "font-medium" %>
-      <%= form.select :presence, @presence_options, {}, { :class => "h-12 border rounded pl-3" } %>
-    </div>
-
-    <div class="flex flex-col">
-      <div class="flex justify-between">
-        <%= form.label :attendees, "How many people are coming?", class: "font-medium" %>
-        <p><%= @studio_capacity %> spaces left</p>
+      <div>
+        <h1 class="text-4xl"><%= @event.name %></h1>
+        <p class="text-2xl"><%= @session.when.strftime("%A %-d %B") %> <%= @session.when.strftime("%-I%P") %></p>
       </div>
-      <%= form.number_field :attendees, in: 1.0..@studio_capacity, step: 1.0, value: 1, class: "h-12 border rounded pl-3" %>
-    </div>
 
-    <div class="flex flex-col">
-      <%= form.label :payment_method, "Do you want to pay online or when you get here?", class: "font-medium" %>
-      <%= form.select :payment_method, @payment_options, {}, { :class => "h-12 border rounded pl-3" } %>
-    </div>
+      <% if @booking.errors.any? %>
+        <div class="text-red">
+          <%= @booking.errors.full_messages %>
+        </div>
+      <% end %>
 
-    <div class="flex flex-col space-y-1">
-      <label class="flex justify-between font-medium"><span>Pay</span><span id="stripe-errors" class="text-center text-red font-medium"></span></label>
-      <div id="stripe-element" class="rounded bg-gray-50 px-3 py-4"></div>
-    </div>
-
-    <div class="flex flex-col space-y-1">
-      <p>Please make sure you are fit and well before coming along. Speak to your doctor if you have any doubts. Yoga is not an alternative to medical care. We accept no liability whatsoever.</p>
-      <div class="flex items-center space-x-3">
-        <%= check_box_tag(:i_understand) %>
-        <%= label_tag(:i_understand, "I have read this and understand", class: "font-medium") %>
+      <div class="flex flex-col">
+        <%= form.label :presence, "Are you coming to the studio or dialling in?", class: "font-medium" %>
+        <%= form.select :presence, @presence_options, {}, { :class => "h-12 border rounded pl-3" } %>
       </div>
+
+      <div class="flex flex-col">
+        <div class="flex justify-between">
+          <%= form.label :attendees, "How many people are coming?", class: "font-medium" %>
+          <p><%= @studio_capacity %> spaces left</p>
+        </div>
+        <%= form.number_field :attendees, in: 1.0..@studio_capacity, step: 1.0, value: 1, class: "h-12 border rounded pl-3" %>
+      </div>
+
+      <div class="flex flex-col">
+        <%= form.label :payment_method, "Do you want to pay online or when you get here?", class: "font-medium" %>
+        <%= form.select :payment_method, @payment_options, {}, { :class => "h-12 border rounded pl-3" } %>
+      </div>
+
+      <div class="flex flex-col space-y-1">
+        <label class="flex justify-between font-medium"><span>Pay</span><span id="stripe-errors" class="text-center text-red font-medium"></span></label>
+        <div id="stripe-element" class="rounded bg-gray-50 px-3 py-4"></div>
+      </div>
+
+      <div class="flex flex-col space-y-1">
+        <p>Please make sure you are fit and well before coming along. Speak to your doctor if you have any doubts. Yoga is not an alternative to medical care. We accept no liability whatsoever.</p>
+        <div class="flex items-center space-x-3">
+          <%= check_box_tag(:i_understand) %>
+          <%= label_tag(:i_understand, "I have read this and understand", class: "font-medium") %>
+        </div>
+      </div>
+
+      <div class="w-full flex justify-end">
+        <span id="pay" class="w-full rounded bg-teal hover:bg-teal-light px-6 py-3 text-center text-white cursor-pointer">Pay</span>
+        <%= form.submit "Book", id: "submit-button", class: "hidden rounded bg-teal hover:bg-teal-light px-6 py-3 text-center text-white" %>
+      </div>
+
     </div>
-
-    <div class="w-full flex justify-end">
-      <span id="pay" class="w-full rounded bg-teal hover:bg-teal-light px-6 py-3 text-center text-white cursor-pointer">Pay</span>
-      <%= form.submit "Book", id: "submit-button", class: "hidden rounded bg-teal hover:bg-teal-light px-6 py-3 text-center text-white" %>
-    </div>
-
-  </div>
-
   <% end %>
 </div>
 
