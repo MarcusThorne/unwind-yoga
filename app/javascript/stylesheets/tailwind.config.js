@@ -20,7 +20,7 @@ module.exports = {
       pink: { light: '#F1E9ED', DEFAULT: '#EEE5E9' },
       yellow: { light: '#FDDA2B', DEFAULT: '#FDDF46' },
       blue: { light: '#D2FEFF', DEFAULT: '#CEFDFF' },
-      red: { light: "ff6b3b", DEFAULT: "#f74f3a" }
+      red: { light: "#ffe4ec", DEFAULT: "#eec0d4" }
     },
 
     extend: {},
