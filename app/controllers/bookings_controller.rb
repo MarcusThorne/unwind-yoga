@@ -94,15 +94,14 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    
     @event = Event.find(params['event_id'])
     @session = Session.find(params['session_id'])
     @booking = Booking.find(params['id'])
-    
+
     if current_user.id == @booking.user_id || current_user.admin
-      
+
       if @booking.destroy
-        
+
         if current_user.admin
           redirect_to bookings_path
         else
@@ -111,10 +110,10 @@ class BookingsController < ApplicationController
 
       else
         render :show
-      
+
       end
     end
-  
+
   end
 
   private
