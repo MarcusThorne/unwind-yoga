@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
     @session = Session.find(params['session_id'])
     @booking = Booking.new
 
+    # Checking to see capacity for specific date and time at the studio
     @studio_capacity = 6
     @session.bookings.where(presence: "studio").each do |booking|
       @studio_capacity -= booking['attendees'].to_i
@@ -44,7 +45,6 @@ class BookingsController < ApplicationController
   end
 
   def create_payment_intent
-
     Stripe.api_key = ENV['STRIPE_SK']
 
     puts params

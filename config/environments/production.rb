@@ -117,7 +117,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:              'smtp.stackmail.com',
     port:                 587,
-    user_name:            'noreply@unwind.yoga',
+    user_name:            'unwindyogainfo@gmail.com',
     password:             ENV['SMTP_PASSWORD'],
     authentication:       'plain',
     enable_starttls_auto: false
