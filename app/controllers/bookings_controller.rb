@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @sessions = Session.where(when: (DateTime.current + 1.hour..DateTime.current + 7.days))
+    @sessions = Session.all
   end
 
   def new

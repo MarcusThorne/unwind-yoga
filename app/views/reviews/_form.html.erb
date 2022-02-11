@@ -21,6 +21,7 @@
     <%= form.text_area :description, rows: 5, class: "border rounded pl-3" %>
   </div>
 
+  <%# uses cloudinary to upload images for reviews, straight from website %>
   <div class="flex items-center space-x-3">
     <%= form.label :photo, class: "font-medium" %>
     <%= form.file_field :photo %>

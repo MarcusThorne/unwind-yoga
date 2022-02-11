@@ -1,6 +1,7 @@
 <div class="rounded-lg shadow-lg bg-white overflow-hidden flex flex-col md:flex-row">
 
   <div class="flex-none w-64 relative">
+    <%# shows cloudinary uploaded image otherwise shows placeholder image %>
     <% if review.photo.attached? %>
       <%= cl_image_tag review.photo.key, class: "absolute inset-0 w-full h-full object-cover object-center	" %>
     <% else %>
@@ -11,6 +12,7 @@
   <div class="flex-auto p-6 flex flex-col justify-between space-y-6">
     <div class="flex justify-between">
       <h3 class="text-2xl font-medium"><%= review.name %></h3>
+      <%# allows you to edit review if admin %>
       <% if current_user.try(:admin?) %>
         <%= link_to edit_review_path(review), class: "hover:text-teal" do %><i class="fas fa-edit"></i><% end %>
       <% end %>

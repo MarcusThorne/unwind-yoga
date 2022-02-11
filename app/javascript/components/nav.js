@@ -1,3 +1,4 @@
+// navbar mobile menu
 const nav = () => {
 
   const openMenu = document.querySelector("#open-menu")

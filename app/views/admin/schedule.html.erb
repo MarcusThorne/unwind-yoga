@@ -1,3 +1,4 @@
+<%# calendar for admin page using simple_calednar ruby gem %>
 <% if current_user.try(:admin?) %>
   <%= link_to "<i class='fas fa-times'></i>".html_safe, home_path, class: "fixed z-10 top-0 shadow bg-white text-red rounded-b-lg px-5 py-1 right-10 text-2xl" %>
 

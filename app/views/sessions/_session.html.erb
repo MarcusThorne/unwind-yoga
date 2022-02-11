@@ -5,6 +5,7 @@
     <p><%= session.when.strftime("%-I%P") %></p>
   </div>
 
+  <%# event is the yoga class type, session is the date and time of one specific class, you would make a booking on the session %>
   <div class="flex space-x-3">
     <%= link_to 'Book', new_event_session_booking_path(session.event_id, session.id), class: "rounded bg-teal hover:bg-teal-light px-6 py-3 text-center text-white" %>
     <% if current_user.try(:admin?) %>

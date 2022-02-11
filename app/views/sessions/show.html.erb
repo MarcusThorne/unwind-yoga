@@ -1,3 +1,4 @@
+<%# a bookings page to show all the bookings on that current session %>
 <div class="p-12">
   <div class="rounded-lg shadow-lg bg-white divide-y">
 
@@ -27,11 +28,11 @@
         </div>
 
         <div class="p-6 col-span-3 md:col-span-1 p-3 self-center text-center md:text-right">
+          <%# delete the booking that corralates to the current Session that belongs to the current Event   %>
           <%= link_to "Cancel", event_session_booking_path(Event.find(Session.find(booking.session_id).event_id), Session.find(booking.session_id), booking), method: :delete, data: { confirm: "Are you sure you'd like to cancel this booking?" }, class: "inline-block rounded bg-red hover:bg-red-light px-6 py-3 text-center text-white" %>
         </div>
 
       </div>
     <% end %>
-
   </div>
 </div>

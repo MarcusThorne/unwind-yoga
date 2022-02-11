@@ -5,18 +5,24 @@ class SessionsController < ApplicationController
   end
 
   def create
+    # find event in params
     @event = Event.find(params[:event_id])
     if params[:weekly]
-      weeks =  (params[:until].to_date - params[:session][:when].to_date).to_i / 7
-      while weeks > -1 do
+      # weeks equals number of days between when and until devided by 7
+      weeks = (params[:until].to_date - params[:session][:when].to_date).to_i / 7
+      while weeks > -1
+        # create a new session with private session_params
         @session = Session.new(session_params)
+        # Session id equals current event id
         @session.event_id = @event.id
+        # Each session has a date of the first date set (when) plus the amount of weeks left in weeks array
         @session.when = params[:session][:when].to_date + weeks.week
         @session.save
         weeks -= 1
       end
       redirect_to @event
     else
+      # do this if weekly isnt selected
       @session = Session.new(session_params)
       @session.event_id = @event.id
       if @session.save

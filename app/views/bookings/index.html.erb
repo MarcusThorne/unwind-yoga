@@ -2,8 +2,17 @@
 
 <div class="p-6 space-y-6">
 
+  <%# search bar not added yet %>
   <input type="search" placeholder="Search" class="w-full h-12 rounded border px-3">
+  <div class="hidden md:flex flex font-semibold">
+    <div class="w-1/5 text-center">Email</div>
+    <div class="w-1/5 text-center">Where they're attending</div>
+    <div class="w-1/5 text-center">Number of Attendees</div>
+    <div class="w-1/5 text-center">Purchase Option</div>
+    <div class="w-1/5 text-center"></div>
+  </div>
 
+  <%# shows all the bookings in descending order %>
   <% @sessions.order(when: :desc).each do |session| %>
     <% if session.bookings.length > 0 %>
 
