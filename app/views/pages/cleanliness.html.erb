@@ -1,25 +1,30 @@
-<div class="md:px-20 py-5 px-2 md:py-32 bg-fixed bg-cover" style="background-image: url('<%= image_url "hygiene.jpg" %>');">
-  <div class="bg-white p-5 md:p-20 rounded opacity-80">
-    <h1 class="text-5xl mb-10">Taking care of Hygiene</h1>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam necessitatibus neque a assumenda natus impedit, minus quos hic mollitia, cumque eligendi voluptatum voluptate aspernatur voluptatem? Error minus ea eum molestiae!</p>
+<div class="px-12 bg-fixed bg-cover flex items-center justify-center" style="height: 70vh; background-image: url('<%= image_url "hygiene.jpg" %>');">
+  <div class="mx-w-sm rounded-lg shadow-lg bg-white bg-opacity-75 p-12 flex flex-col space-y-6">
+    <h1 class="text-6xl">Taking Care of Hygiene!</h1>
+    <%# <a class="border-2 border-black hover:border-teal rounded hover:bg-teal p-3 text-center hover:text-white" href="#classes"><i class="fa-solid fa-chevron-down"></i></a> %>
   </div>
 </div>
 
-<div class="flex flex-col md:flex-row">
-  <div class="md:w-1/2 p-20">
-    <h1 class="text-xl mb-5">Here's our system</h1>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum iure deserunt pariatur blanditiis necessitatibus expedita odio modi eveniet praesentium dolor animi ex, sapiente illo quidem veritatis, corrupti ad culpa non!</p>
-  </div>
-  <div class="md:w-1/2 bg-teal p-20 text-white">
-    <h1 class="text-xl mb-5">Here's our ratings</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum soluta velit ratione accusamus laboriosam reprehenderit illum dignissimos in, laudantium non officia amet porro enim mollitia exercitationem culpa adipisci quia sit?</p>
+<div class="bg-white p-12 md:p-24 flex flex-col md:flex-row items-center md:space-x-24 space-y-6 md:space-y-0">
+  <h2 class="md:w-1/3 text-2xl sm:text-4xl lg:text-6xl w-max">Cleaning Routine <br><p class="border-pink w-20 border-b-4 mt-5 mx-auto md:mx-0"></p></h2>
+  <div class="md:w-2/3 text-justify md:space-y-6">
+    <p class="mb-5">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit eaque, sapiente fuga rerum obcaecati beatae facere ipsum cum atque eos quis. Ex culpa beatae ea reiciendis est nostrum quas officiis.</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit eaque, sapiente fuga rerum obcaecati beatae facere ipsum cum atque eos quis. Ex culpa beatae ea reiciendis est nostrum quas officiis.</p>
   </div>
 </div>
 
-<div class="w-1/2 mx-auto py-20">
-  <h1 class="border-b border-gray-500 w-max text-4xl mb-10">Title</h1>
-  <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo ipsa enim asperiores sapiente, pariatur saepe similique. Molestiae vel aliquam, nam, ipsa sed similique doloremque aperiam ipsam repudiandae impedit, quaerat corrupti.</p>
-  <%= link_to "Resources", resources_path, class:"px-10 py-2 border border-gray-500 ml-auto" %>
+<div class="bg-fixed bg-cover py-24 flex items-center justify-center text-white text-4xl text-center" style="background-image: url('<%= image_url "leaf.jpg" %>');">
+  <p class="w-2/3 lg:w-1/3 rounded-lg shadow-lg p-12 bg-black">Take a Lead out of Our Book</p>
+</div>
+
+<div class="grid lg:grid-cols-2">
+  <div class="h-full flex flex-col justify-center bg-teal p-12 md:p-24 space-y-6 text-white">
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum, pariatur! Voluptates, voluptas voluptate ipsam ab iusto quas. Delectus eos, expedita illum facilis beatae praesentium. Odio optio eius saepe velit facilis!</p>
+  </div>
+
+  <div class="h-full flex flex-col justify-center bg-pink p-12 md:p-24 space-y-6">
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum, pariatur! Voluptates, voluptas voluptate ipsam ab iusto quas. Delectus eos, expedita illum facilis beatae praesentium. Odio optio eius saepe velit facilis!</p>
+  </div>
 </div>
 
 <%= render "shared/footer" %>

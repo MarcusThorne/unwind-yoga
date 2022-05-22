@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   end
 
   def new_to_unwind
+    @events = Event.all
   end
 
   def cleanliness
