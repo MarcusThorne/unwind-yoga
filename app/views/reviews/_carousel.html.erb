@@ -6,7 +6,7 @@
       <% if r.photo.attached? %>
       <%= cl_image_tag r.photo.key, class: "h-16 w-16 rounded-full object-cover" %>
       <% else %>
-      <%= image_tag "placeholder", class: "h-16 w-14 rounded-full object-cover" %>
+      <%= image_tag "placeholder.jpg", class: "h-16 w-14 rounded-full object-cover" %>
       <% end %>
       <h3 class="font-medium"><%= r.name %></h3>
     </div>
