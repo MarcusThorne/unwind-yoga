@@ -5,7 +5,7 @@
     <% if review.photo.attached? %>
       <%= cl_image_tag review.photo.key, class: "absolute inset-0 w-full h-full object-cover object-center	" %>
     <% else %>
-      <%= image_tag 'placeholder', class: "absolute inset-0 w-full h-full object-cover" %>
+      <%= image_tag 'placeholder.jpg', class: "absolute inset-0 w-full h-full object-cover" %>
     <% end %>
   </div>
 
