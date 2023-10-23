@@ -67,3 +67,5 @@ gem 'cloudinary', '~> 1.16.0'
 gem 'pg_search'
 
 gem 'mini_portile2'
+
+gem 'psych', '< 4'
