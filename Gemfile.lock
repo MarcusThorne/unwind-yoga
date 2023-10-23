@@ -257,6 +257,7 @@ DEPENDENCIES
   dotenv-rails
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  mini_portile2
   pg (>= 0.18, < 2.0)
   pg_search
   puma (~> 4.1)
@@ -275,4 +276,4 @@ DEPENDENCIES
   webpacker (~> 4.0)
 
 BUNDLED WITH
-   2.2.26
+   2.4.17
